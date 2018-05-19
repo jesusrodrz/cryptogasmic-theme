@@ -1,0 +1,1281 @@
+@import 'materialize';
+@import 'photoswipe/main';
+@import 'photoswipe/default-skin';
+
+@media #{$small-and-down} {
+  // styles for small screens and down
+}
+
+@media #{$medium-and-down} {
+  // styles for medium screens and down
+}
+@media #{$large-and-up} {
+  // styles for large screens and up
+}
+@media #{$extra-large-and-up} {
+  // styles for extra large screens and up
+}
+
+// body background
+body{
+  background-color: $crypto-bg-color;
+
+}
+.crypto-header{
+  background-color: black;
+  @extend .z-depth-1;
+  position: relative;
+
+}
+.no-rel{
+  position:static;
+}
+.main-logo{
+  display: block;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // display: none;
+  &__img{
+    display: block;
+    height: 90%;
+  }
+
+}
+
+
+.navbar-menu{
+  &__link{
+    // background-color: red;
+    display: block;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-family: $font-stack;
+  }
+  &__link::after{
+    content: '';
+    position: absolute;
+    bottom: .8em;
+    height: .2em;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $crypto-color;
+    opacity: 1;
+    transition: all ease-in-out .4s;
+  }
+  &__link:hover::after,&__link--active::after{
+    width: calc(100% - 30px);
+  }
+
+
+}
+nav {
+  .nav-wrapper{
+    position: static;
+  }
+  .sidenav-trigger{
+    position: absolute;
+    margin: 0;
+    // z-index: 1000;
+  }
+}
+.menu-icon{
+  width: 45px;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  position: relative;
+  z-index: 900000;
+  
+  &__item{
+    display: block;
+    background-color: white;
+    width: 50%;
+    height: 2px;
+    position: absolute;
+    transition: all ease-in-out .7s;
+  }
+  
+  &__item:nth-of-type(1){
+    top:0;
+    // transform: translateY(-8px)
+  }
+  
+  &__item:nth-of-type(2){
+
+  }
+  &__item:nth-of-type(3){
+    bottom: 0;
+    // transform: translateY(8px)
+  }
+
+
+}
+.menu-icon--active{
+
+  &:nth-of-type(1){
+    // transform: translateY(0);
+    top:auto;
+    transform: rotate(45deg);
+  }
+  &:nth-of-type(2){
+    transform: scale(0)
+  }
+  &:nth-of-type(3){
+    // transform: translateY(0);
+    bottom: auto;
+    transform: rotate(-45deg);
+  }
+}
+
+.sidenav-trigger--crypto{
+  right: 0;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $crypto-color;
+  z-index: 10000;
+}
+
+.main-footer{
+  background-color: black;
+  max-height: 50vh;
+  
+  
+
+  &__logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rebeccapurple;
+  }
+  &__link{
+    display: block;
+    height: 6rem;
+    padding: 1em;
+  }
+
+  &__img{
+    height: 100%;
+  }
+  &__social{
+    color: white;
+    // background-color: red;
+    display: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2em;
+    height: 100%;
+    padding: .6em;
+    @media #{$large-and-up} {
+      padding: 1em 2em;
+    
+    }
+  }
+  &__social-link{
+    display: block;
+    height: 1.65em;
+    width: 1.65em;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all ease-in-out .3s;
+    &:hover{
+    border: 3px solid $crypto-color;
+    color: $crypto-color;
+    }
+  }
+
+  
+}
+
+
+.social-icons{
+  color: white;
+}
+
+.footer-content{
+  // min-height: 12rem;
+}
+
+.copy-right{
+  color: white;
+  
+}
+
+.footer-row{
+  margin-bottom: 0;
+
+}
+
+
+.page-banner{
+
+  height: $navbar-height-mobile * 3;
+  @media #{$medium-and-up} {
+  
+    height: $navbar-height * 3;
+  }
+  background-image: 
+  linear-gradient(to top, rgba(0,0,0,1),rgba(0,0,0,0)),
+  url('https://cryptogasmic.com/wp-content/uploads/2018/03/education.jpg');
+  background-position: center, center;
+  background-size: contain, cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-tittle{
+  // font-size: 1em;
+  color: white;
+  // padding:0;
+  // margin: 0;
+  // margin: 2.8rem 0 1.68rem 0;
+  // margin: 2.8rem 0 1.68rem 0;
+  font-weight: 100;
+  letter-spacing: 4px;
+  font-size:3.5em;
+  text-shadow: 1px 1px 6px rgba(#000, .9);
+  margin: 2.8rem 0 2.8rem 0;
+  text-transform: uppercase;
+}
+
+%crypto-card{
+  background-color: white;
+  border-radius: .3rem;
+  @extend .z-depth-1;
+}
+%a-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signal-item{
+  @extend %crypto-card;
+  position: relative;
+  margin-bottom: $gutter-width;
+  // &__back::before {
+  //   content: '';
+  //   width: 1rem;
+  //   height: 1rem;
+  //   top: calc(50% - .5rem);
+  //   left: calc(1rem + .25rem);
+  //   position: absolute;
+  //   border-style: solid;
+  //   border-width: .5rem;
+  //   border-color: transparent  white transparent  transparent; 
+  //   @media only screen and (max-width: 600px) {
+    
+  //     width: .5rem;
+  //     height: .5rem;
+  //     top: calc(50% - .25rem);
+  //     left: (.5rem + .125rem);
+  //     border-width: .25rem;  
+  //   }
+  // }
+  &__carousel{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: steelblue;
+    min-height: 100px;
+    min-width: 100px;
+  }
+  &__close{
+    font-size:1.5rem;
+    margin-left: -.12rem;
+    margin-top: -.1rem;
+    display: inline-block;
+    @media #{$small-and-down} {
+      font-size: 1rem;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translateX(-50%) translateY(-50%)
+    }
+  }
+  &__logo{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__fig{
+    margin: 0 0 $gutter-width 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    &::after{
+      content: '';      
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color:  rgba($crypto-color, $alpha: .7);
+      // background-image: radial-gradient(center,)  
+      opacity: 0;
+      top: 0;
+      left: 0;
+      transition: all cubic-bezier(.1,.8,.7,.36) .3s;
+    }
+    &::before{
+      font-family: untitled-font-1;
+      content: "\66";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) scale(0);
+      color: white;
+      z-index: 20;
+      transition: all cubic-bezier(.1,.8,.7,.36) .4s;      
+    }
+    &:hover::after{
+      opacity: 1;
+    }
+    &:hover::before{
+      transform: translateX(-50%) translateY(-50%) scale(3);
+      
+    }
+  }
+  &__card{
+    cursor: pointer;
+  }
+  &__img{
+    margin-left: 1.1rem;
+    width: 100%;
+  }
+  &__title{
+    font-size: 1.2rem;
+    font-weight: 300;
+    @media #{$small-and-down} {
+      font-size: .65em;        
+    }
+  }
+  &__bold{
+    // font-style: bold;
+    font-weight: bold;
+    &--bolder{
+      font-size: 1.2rem;      
+      font-weight: 900;
+      @media #{$small-and-down} {
+        font-size: .8em;        
+      }
+    }
+  }
+  &__content{
+    margin: .2rem 0;
+    font-size: .8em;
+    text-align: justify;
+    @media #{$small-and-down} {
+      font-size: .8em;        
+    }
+  }
+  &__btn{
+    @extend .btn-floating;
+    position: absolute;
+    right: 1.1rem;
+    background-color: $crypto-color;
+    &:hover{
+      background-color:  darken($crypto-color, 15%);
+    }
+    
+    &--active{
+      transform: rotate(90deg);      
+    }
+  }
+  
+  &__play{
+    width: 100%;
+    height:100%;
+    display: block;
+    position: relative;
+    transition: all ease-in-out .5s;
+    &::before{
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      top: calc(50% - .5rem);
+      left: calc(50% - .2rem);
+      @media #{$small-and-down} {
+        width: .5rem;
+        height: .5rem;
+        top: calc(50% - .25rem);
+        left: calc(50% - .1rem);
+        border-width: .25rem;  
+      }
+      position: absolute;
+      border-style: solid;
+      border-width: .5rem;
+      border-color: transparent  transparent  transparent white;
+    }
+
+  }
+  
+  &__row{
+    margin: 0;
+    padding: 0 1.1rem;
+  }
+  
+  &__divider{
+    @extend .divider;
+    width: calc(100% - 2.2rem);
+    margin: 1rem auto;
+  }
+  
+  &__acordion{
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-in-out 3s;
+    &--active{
+      max-height: 1200rem;
+    }
+  }
+
+  &__chart{
+    width: 100%;
+
+    @extend .z-depth-1;
+
+    cursor: pointer;
+
+    display: block;
+    position: relative;
+    &:hover::after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba($crypto-color, $alpha: .7);
+      top: 0;
+      left: 0;
+    }
+    &:hover::before{
+      
+    }
+    
+  }
+}
+
+.cryptoupdate{
+  @extend %crypto-card;
+  
+  &__vertical-wrapper{
+    @media #{$medium-and-up} {
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+  }
+
+  &__body{
+    text-align: justify;
+  }
+  &__fig{
+    // margin: 1rem 0;
+    @extend %a-center ; 
+  }
+  &__img{
+    max-width: 100%;
+  }
+  // background-color: white;
+  border-radius: .3rem;
+  &__tittle{
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  &__news-title{
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  &__row{
+    // @extend .signal-item__row;
+    margin: 0;
+    padding: 0 1.1rem;
+
+  }
+  &__date{
+    margin:0;
+    font-size: .8em;
+    color: #838383;
+  }
+
+  &__body{
+    @extend .signal-item__content;
+    
+  }
+  &__btn{
+    background-color: #EF4797;
+    &:hover{
+      background-color:  #EE3399;
+    }
+    &:visited{
+      background-color:  #EE4499;
+    }
+    &:active{
+      background-color:  #EE4499;
+    }
+
+  }
+  &__wrapper{
+    margin: 1rem 0;
+  }
+}
+
+.container--modified{
+  @extend .container ;
+  
+  @media #{$small-and-down} {
+    width: 95%;
+  }
+
+  @media #{$large-and-up} {
+    width: 90%;
+  }
+
+}
+
+.training-course{
+  &__title{
+    margin-left: 1rem;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  &__link{
+    color:$off-black;
+  }
+}
+
+.training{
+
+  &--mobile-active{
+
+    .training__fig{
+      display: none;
+    }
+    .training__body::after{
+      display: none;
+    }
+    .training__title{
+      margin-top: 0;
+    }
+  }
+
+  position: relative;
+  overflow-y: hidden;
+  margin-bottom: $gutter-width;
+  outline: none;
+
+  @extend %crypto-card;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  &__fig{
+
+    margin: 1em 0;
+    padding: 0;
+
+    @extend %a-center;
+
+    position: relative;
+    cursor: pointer;
+    &::after{
+      content: '';      
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color:  rgba($crypto-color, $alpha: .7);
+      // background-image: radial-gradient(center,)  
+      opacity: 0;
+      top: 0;
+      left: 0;
+      transition: all cubic-bezier(.1,.8,.7,.36) .3s;
+    }
+    &::before{
+      font-family: untitled-font-1;
+      content: "\67";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) scale(0);
+      color: white;
+      z-index: 20;
+      transition: all cubic-bezier(.1,.8,.7,.36) .3s;      
+    }
+    &:hover::after{
+      opacity: 1;
+    }
+    &:hover::before{
+      transform: translateX(-50%) translateY(-50%) scale(3);
+      
+    }
+
+  }
+  &__video{
+    padding: 1em 0;
+    margin:0;  
+   
+  }
+  &__img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__title{
+    font-weight: 600;
+    font-size: 1.08em;
+    margin-bottom: 0;
+    @media #{$medium-and-up} {
+      margin-top: 0;
+    }
+  }
+
+  &__body{
+    overflow-y: hidden;
+    position: relative;
+    transition: all ease-in-out .7s;
+    background-color: white;
+    z-index: 30;
+    
+    &::after{
+      content: '';
+      position: absolute;
+      bottom:0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      background-image: linear-gradient(to top, rgba(255, 255, 255,1),rgba(0,0,0,0));
+    }
+   
+  }
+
+  &__description{
+    text-align: justify;
+    margin-top: 0;
+    font-size: .85em;
+    
+    @media #{$small-and-down} {
+      font-size: .80em;
+           
+    }
+  }
+
+  &__body--reveal{
+    background-color: white;    
+    position: absolute;
+    width: 100%;
+    padding: $gutter-width;
+    top: 100%;
+    z-index: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    transition: all ease-in-out .7s;
+  }
+
+  &__btn{
+    color:white;
+    background-color: $crypto-color;
+    text-transform: none;
+    &:hover{
+      background-color:  darken($crypto-color, 10%);
+    }
+  }
+
+  &__btn-container{
+    padding: 1.2em 0;
+    background-color: white;
+    position: relative;
+    z-index: 50;
+    @extend %a-center;
+    &::after{
+      content: '';
+      height: $gutter-width;
+      width: 100%;
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      // left: 0;
+    }
+
+
+  }
+  &__btn{
+    color:white;
+    background-color: $crypto-color;
+    text-transform: none;
+
+    &:hover{
+      background-color:  darken($crypto-color, 10%);
+    }
+  }
+
+}
+.my-modal{
+  @extend .z-depth-5;
+  background-color: #fefefe;
+  max-height: 90%;
+  width: 80%;
+  border-radius: 7px;
+  padding: $gutter-width;
+  overflow-y: auto;
+  
+  @media #{$large-and-up} {
+    width: 52%;           
+  }
+  @media #{$large-and-up} {
+    // width: 60%;           
+  }
+
+  &__divider{
+    @extend .signal-item__divider ;
+    height: 1.5px;
+    // width: calc(100% - $gutter-width)
+    width: 100%;
+  }
+  &__title{
+    @extend .training__title ;
+    margin: 0;
+  }
+  &__body{
+    overflow-y: auto;
+    
+  }
+  &__description{
+    // @extend .training__body ;
+    margin-top: 0;
+    @media #{$large-and-up} {
+      text-align: justify;
+    }
+  }
+
+}
+
+
+
+.modalB{
+  @extend .my-modal ;
+  position: absolute;
+  overflow: initial;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  height: 90%;
+  &__element{
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  &__chart{
+    display: block;
+    height: 100%;
+    width: auto;
+    background-color: blue;
+    
+  }
+  &__fig{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  &__fig--modi{
+    height: calc(100% - 16px);
+    width: auto;
+    padding: 0;
+    margin: 0 1rem 0;
+    background-color: rebeccapurple;
+  }
+
+  &__body{
+    @extend .my-modal__body ;
+    width: 100%;
+    overflow-y:hidden;
+    overflow-x:auto;
+    height: 25%;
+    display: flex;
+    flex-wrap: nowrap;
+    // padding: 0 0 0 2rem;
+    
+  }
+
+
+}
+
+.account{
+
+  @extend %crypto-card;
+  text-align: center;
+  border-radius: 5px;
+  &__title{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.5em;
+    @media #{$medium-only} {
+      font-size: 1.8em;
+    }
+    font-weight: 600;
+    color: $input-border-color;
+  }
+  &__btn{
+    @extend .cryptoupdate__btn;
+    font-weight: 500;
+    text-transform: none;
+  }
+}
+
+.membership{
+  &__title, &__date{
+    text-align: center;
+    margin: 0;
+    
+  }
+  &__title{
+
+  }
+  &__date{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $input-border-color;
+  }
+  margin-bottom: 1.5rem;
+}
+
+.signal-item__acordion-b{
+  @extend .signal-item__acordion ;
+  &--active{
+    @extend .signal-item__acordion--active ;
+  }
+}
+.updates{
+  background-color: $crypto-bg-color;
+  border-radius: .3rem;
+  &__row{
+    margin: 0;
+    padding: 0 1.1rem;
+  }
+
+  &__tag{
+    text-transform: uppercase;
+    background-color: $crypto-color;
+    display: inline-flex;
+    height: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 .3rem .3rem 0;
+    padding: 0rem .6rem;
+    border-radius: 1.6rem;
+    cursor: default;
+    color:white;
+    
+  }
+
+  
+
+}
+
+.t-right{
+  text-align: right;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container--higher,#content-sidebar-wrap,.content-area{
+  flex: 1 0 auto;
+  // height: calc(100vh - 300px);
+}
+
+.entry-title{
+  display:none;
+}
+
+.home-headings { font-size:3.5em; font-weight:100;color: rgba(250,250,250,.9); text-shadow: 1px 1px 2px rgba(0,0,0,.2); }
+
+html {
+  height: 100%;
+}
+// body {
+//   min-height: 100%;
+//   display: grid;
+//   grid-template-rows: 1fr auto;
+// }
+// .footer {
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+// }
+
+
+
+.add_to_cart_button,.button.alt{
+  @extend .waves-effect ;
+  @extend .waves-light ;
+  @extend .btn ;
+  @extend .cryptoupdate__btn ;
+  // @extend .signal-item__updates ;
+}
+.button.alt{
+  background-color: #EF4797 !important;
+    &:hover{
+      background-color:  #EE3399 !important;
+    }
+    &:visited{
+      background-color:  #EE4499 !important;
+    }
+    &:active{
+      background-color:  #EE4499 !important;
+    }
+}
+.product-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  &__item{
+    padding: $gutter-width / 2;
+    padding-bottom: $gutter-width;
+    // height: 200px;
+  }
+}
+
+.woocommerce-loop-product__title{
+  font-size: 1.4rem
+}
+.price{
+  font-size: 1.2rem;
+  margin-bottom: $gutter-width / 2; 
+}
+.payments{
+  padding: $gutter-width / 2;
+}
+.woocommerce-loop-product__link{
+  @extend .product-center ;
+  
+}
+
+.attachment-woocommerce_thumbnail{
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.video{
+  &-wrapper{
+    position:absolute;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+  }
+  &-tag{
+    height:100%;
+    min-width:100%;
+    object-fit: fill;
+    @media #{$small-and-down} {
+      display: none;
+    }
+  }
+
+}
+
+.height-100{
+  height: 100%;
+}
+
+.poster{
+  height: 100%;
+  width: 100%;
+  
+  &__img{
+    height: 100%;
+    width: auto;
+  }
+}
+
+
+.crypto-section{
+  height:100vh;
+  position:relative;
+  background:#000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+}
+.banner-container{
+  position:absolute; 
+  height:100%; 
+  width:100%; 
+  top:0;
+  left:0; 
+  z-index:50;
+  &__title{
+    font-size:3.5em; 
+    font-weight:100;
+    text-align:left;
+    text-shadow: 1px 1px 2px #000;
+  }
+}
+.slogan{
+  height: 70vh;
+  // background:#fff!important;
+  background:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  color:white;
+
+  &--down{
+    height: 60vh;
+    background:#EF54A1;
+  }
+  &__title{
+    text-align:center;
+    font-size:3.5em; 
+    font-weight:100;
+    color: rgba(250,250,250,.9); 
+    text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+    @media #{$small-and-down} {
+      font-size:3em; 
+    }
+  }
+  &__text{
+    font-size: 1.5em;
+    @media #{$medium-only} {
+      font-size: 1.3em;
+    }
+    @media #{$small-and-down} {
+     font-size: 1.3em;
+    }
+    color:#606060;
+    font-weight:200;
+    text-align:justify; 
+    padding:.75rem
+  }
+}
+
+.crypto-banner{
+  height: 70vh;
+  background-image:  url('https://cryptogasmic.com/wp-content/uploads/2018/03/yourlifedesignedbyyoucropped.jpg');
+  background-position: center, center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+}
+
+.description-detailed{
+  &__item{
+    height: 70vh;
+    background-position: center, center;
+    background-size: contain, cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+
+    &--community{
+      background-image: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,.2)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/community-1.jpg');
+      
+    }
+    &--education{
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/education.jpg');
+    }
+    &--freedom{
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/pexels-photo-709143.jpg');
+    }
+    
+  }
+  &__title{
+    font-size:3.5em; 
+    font-weight:100;
+    text-align:left;
+    text-shadow: 1px 1px 2px #000;
+  }
+  &__text{
+    font-size: 1.2em;
+    font-weight:200;
+    text-align:justify;
+    text-shadow: 1px 1px 2px #000;
+  }
+}
+
+.features{
+  padding: 6em;
+
+  &__item{
+    display:flex; 
+    flex-direction:column; 
+    align-items: center; 
+    text-align:center;
+    margin-bottom: 2rem;
+    @media #{$small-and-down} {
+    margin-bottom: 5rem;
+    }
+  }
+  &__fig{
+    text-align:center;
+    
+  }
+  &__img{
+    width: 25%;
+    @media #{$small-and-down} {
+      width: 50%;    
+    }
+  }
+  &__description{
+    height: 5rem;
+  }
+}
+.features-detailed{
+  &__item {
+
+    @extend .description-detailed__item ;
+    height: 90vh;
+
+    &:nth-of-type(1){
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/signals.jpg');
+      
+    }
+    &:nth-of-type(2){
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/pexels-photo-186461.jpg');
+      
+    }
+    &:nth-of-type(3){
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/pexels-photo-730569.jpg');
+    }
+    &:nth-of-type(4){
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/pexels-photo-359757.jpg');
+    }
+    &:nth-of-type(5){
+      background-image: linear-gradient(to top, rgba(0,0,0,4), rgba(0,0,0,.1)), url('https://cryptogasmic.com/wp-content/uploads/2018/03/andre-francois-557694-unsplash.jpg');
+    }
+  }
+  &__title{
+    @extend .description-detailed__title ;
+    text-align: center;
+
+  }
+  &__text{
+    
+    @extend .description-detailed__text ;
+    text-align: center;
+
+  }
+}
+
+.slide-in{
+  position: relative;
+  &__parent{
+    overflow: hidden;
+  }
+  &-left{
+    animation: slideLeft 1.125s ease-in-out;
+  }
+  &-right{
+    animation: slideRight 1.125s ease-in-out;
+  }
+  &-bottom{
+    animation: slideBottom 1.125s ease-in-out;
+    
+  }
+}
+
+@keyframes slideLeft {
+  from{
+    left: -100%
+  }
+  to{
+    left: 0;
+  }
+  
+}
+@keyframes slideRight {
+  from{
+    left: 100%
+  }
+  to{
+    left: 0;
+  }
+}
+@keyframes slideBottom {
+  from{
+    transform: translateY(100%)
+  }
+  to{
+    transform: translateY(0)
+  }
+}
+
+select {
+  display: block;
+}
+#billing_country_field{
+  width: 100%;
+}
+.woocommerce-additional-fields{
+  display: none;
+}
+/****************** 404 page **************************/
+#not_found_page > div, #thankyou_page > div{
+  height:80vh;
+  display:flex;
+  align-items:center; }
+  @media only screen and (max-width: 600px) {
+    #not_found_page > div, #thankyou_page > div{
+      margin: auto;
+      margin-top: 20px;
+      height: auto;
+      text-align: center;
+    }
+  }
+
+#thankyou_page > div {
+  text-align: center;
+}
+
+.restricted-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+// .embed-container {
+//   position: relative;
+//   padding-bottom: 56.25%;
+//   height: 0;
+//   overflow: hidden;
+//   iframe {
+//     position: absolute;
+//     top:0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }

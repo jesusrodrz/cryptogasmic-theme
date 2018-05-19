@@ -1,0 +1,23 @@
+
+.icon-font{
+  // position: absolute;
+  // display: block;
+  // top: 50%;
+  // left: 50%;
+  transform: translateX(3px);
+  transform: translateY(3px);
+  // &::before{
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   transform: translateY(-50%);
+
+  // }
+  // background-color: rebeccapurple !important;
+}
+
+.icon-play{
+  font-size: .6rem;
+  color: red;
+}
